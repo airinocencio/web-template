@@ -32,6 +32,13 @@
   composes: marketplaceModalPasswordMargins from global;
 }
 
+.userType{
+  margin-top:24px;
+  @media (--viewportMedium) {
+    margin-top: 32px;
+  }
+}
+
 .bottomWrapper {
   composes: marketplaceModalBottomWrapper from global;
 }

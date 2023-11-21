@@ -7,9 +7,10 @@ import classNames from 'classnames';
 
 import { FormattedMessage, injectIntl, intlShape } from '../../../util/reactIntl';
 import * as validators from '../../../util/validators';
-import { Form, PrimaryButton, FieldTextInput } from '../../../components';
+import { Form, PrimaryButton, FieldTextInput , FieldSelect} from '../../../components';
 
 import css from './SignupForm.module.css';
+import FieldRangeSlider from '../../../components/FieldRangeSlider/FieldRangeSlider';
 
 const SignupFormComponent = props => (
   <FinalForm
@@ -146,6 +147,22 @@ const SignupFormComponent = props => (
               })}
               validate={passwordValidators}
             />
+            <FieldSelect
+              className={css.userType}
+              type="text"
+              id="usertype"
+              name="usertype"
+              label="What are you signing up as?"
+              validate={validators.required(
+                intl.formatMessage({
+                  id: 'SignupForm.userTypeRequired'
+                })
+              )}
+            >
+              <option value="">Pick something...</option>
+              <option value="travelmanager">Travel Manager</option>
+              <option value="hotelier">Hotelier</option>
+            </FieldSelect>
           </div>
 
           <div className={css.bottomWrapper}>
